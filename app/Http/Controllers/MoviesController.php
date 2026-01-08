@@ -16,4 +16,8 @@ class MoviesController extends Controller
         $popularMovies = $this->tmdbService->popularMovies();
         return view('movies.index', compact('popularMovies'));
     }
+    public function show(int $id){
+    $movie = $this->tmdbService->findOnePopularMovieById($id);
+    return view('movies.show', compact('movie'));
+    }
 }

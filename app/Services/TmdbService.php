@@ -25,4 +25,13 @@ class TmdbService
             return Movie::fromApi($m);
         })->toArray();
     }
+    public function findOnePopularMovieById(int $id): Movie
+    {
+        $data = Http::get("https://api.themoviedb.org/3/movie/{$id}", [
+            'api_key' => $this->apiKey,
+            'language' => 'fr-FR',
+        ])->json();
+
+        return Movie::fromApi($data);
+    }
 }

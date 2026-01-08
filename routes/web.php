@@ -12,7 +12,11 @@ Route::get(
 
 //Routes des movies
 Route::get(
-    '/movies',
+    '/movies/popular',
     [MoviesController::class, "index"]
 )->name("movies.index");
+Route::get(
+    '/movies/popular/{movie}',
+    [MoviesController::class, "show"]
+)->name("movies.show");
 

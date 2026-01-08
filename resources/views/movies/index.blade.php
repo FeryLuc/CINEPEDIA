@@ -6,7 +6,7 @@
     <div>
     <ul>
         @foreach ($popularMovies as $movie)
-            <li><a href="">{{$movie->title}}</a></li>
+            <li><a href="{{route('movies.show', ['movie' => $movie->id])}}">{{$movie->title}}</a></li>
         @endforeach
     </ul>
 </div>
