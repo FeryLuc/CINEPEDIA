@@ -2,17 +2,18 @@
 
 @section('content')
 
-<h2>Film populaire</h2>
-<ul>
-    @foreach ($popularMovies as $movie)
-        <li>{{$movie->title}}</li>
-    @endforeach
-</ul>
+<h2>Idée de film à voir</h2>
+
+  
+        <h1><a href="{{route('movies.show',['movie'=>$randMovie->id])}}">{{$randMovie->title}}</a></h1>
+        <img src="{{$randMovie->posterUrl() ?$randMovie->posterUrl():$randMovie->title }}" alt="{{$randMovie->title}}">
+    
+
 <br/>
-<h2>Actuellement en salle</h2>
+<h2>Films actuellement en salle</h2>
 <ul>
     @foreach ($nowPlaying as $movie)
-        <li>{{$movie->title}}</li>
+        <li><a href="{{route('movies.show',['movie'=>$movie->id])}}">{{$movie->title}}</a></li>
     @endforeach
 </ul>
     
@@ -20,7 +21,7 @@
 <h2>Séries en cours de diffusion</h2>
 <ul>
     @foreach ($tvShowOnAir as $tvShow)
-        <li>{{$tvShow->name}}</li>
+        <li><a href="">{{$tvShow->name}}</a></li>
     @endforeach
 </ul>
 @endsection

@@ -27,6 +27,25 @@ class TmdbService
         })->toArray();
     }
 
+    public function randMovie()
+    {
+        $rand = rand(1, 500);
+        $response = Http::get('https://api.themoviedb.org/3/movie/popular', [
+            'api_key' => $this->apiKey,
+            'language' => 'fr-FR',
+            'page' => $rand
+        ])->json('results');
+        $rand2 = rand(0, 19);
+        $movieId = $response[$rand2]['id'];
+        $resp = Http::get("https://api.themoviedb.org/3/movie/{$movieId}", [
+            'api_key' => $this->apiKey,
+            'language' => 'fr-FR',
+
+        ])->json();
+
+        return Movie::fromApi($resp);
+    }
+
     public function nowPlaying(): array
     {
         $data = Http::get("https://api.themoviedb.org/3/movie/now_playing", [

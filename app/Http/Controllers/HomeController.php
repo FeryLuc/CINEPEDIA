@@ -16,9 +16,9 @@ class HomeController extends Controller
 
     public function homeAction()
     {
-        $popularMovies = $this->tmdbService->popularMovies();
+        $randMovie = $this->tmdbService->randMovie();
         $nowPlaying = $this->tmdbService->nowPlaying();
         $tvShowOnAir = $this->tmdbService->tvShowOnAir();
-        return view("pages.home", compact('popularMovies', 'nowPlaying', 'tvShowOnAir'));
+        return view("pages.home", compact('randMovie', 'nowPlaying', 'tvShowOnAir'));
     }
 }
