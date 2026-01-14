@@ -5,7 +5,7 @@
 @section('content')
     <ul>
         @foreach ($topRatedTvShows as $tvShow)
-            <li><a href="{{route('tvshows.show', ['tv-show'=>$tvShow->id])}}">{{$tvShow->name}}</a></li>
+            <li><a href="{{route('tvshows.show', ['tvShow'=>$tvShow->id])}}">{{$tvShow->name}}</a></li>
         @endforeach
     </ul>
 @endsection

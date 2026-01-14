@@ -39,7 +39,7 @@ Route::get(
     [TvShowController::class, "topRated"]
 )->name("tvshows.toprated");
 
-Route::get('tv-shows/popular', [TvShowController::class, "popularTvShows"])->name("tvshows.popular");
+Route::get('tv-shows/popular', [TvShowController::class, "popular"])->name("tvshows.popular");
 
 //Show d'un film
 Route::get(
@@ -47,3 +47,8 @@ Route::get(
     [MoviesController::class, "show"]
 )->name("movies.show");
 
+//Show d'un tv show
+Route::get(
+    '/tv-shows/{tvShow}',
+    [TvShowController::class, "show"]
+)->name("tvshows.show");

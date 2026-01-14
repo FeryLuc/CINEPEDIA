@@ -29,11 +29,12 @@ class TvShowController extends Controller
     public function topRated()
     {
         $topRatedTvShows = $this->tmdbService->topRatedTvShows();
-        return view('tvshows.toprated', compact('topRatedTvShows '));
+        return view('tvshows.toprated', compact('topRatedTvShows'));
     }
 
     public function show(int $id)
     {
+        
         $tvShow = $this->tmdbService->findOneTvShowById($id);
         return view('tvshows.show', compact('tvShow'));
     }
