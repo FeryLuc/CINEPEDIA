@@ -30,13 +30,13 @@
                             group-hover/series:block
                             group-focus-within/series:block
                             bg-white text-gray-800 shadow-lg rounded">
-                    <a href="" class="block px-4 py-2 hover:bg-gray-100">
+                    <a href="{{route('tvshows.popular')}}" class="block px-4 py-2 hover:bg-gray-100">
                         Populaires
                     </a>
-                    <a href="" class="block px-4 py-2 hover:bg-gray-100">
+                    <a href="{{route('tvshows.onair')}}" class="block px-4 py-2 hover:bg-gray-100">
                         En diffusion
                     </a>
-                    <a href="" class="block px-4 py-2 hover:bg-gray-100">
+                    <a href="{{route('tvshows.toprated')}}" class="block px-4 py-2 hover:bg-gray-100">
                         Les mieux notées
                     </a>
                 </div>
