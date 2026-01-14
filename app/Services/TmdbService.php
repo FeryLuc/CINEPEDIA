@@ -98,6 +98,24 @@ class TmdbService
             return TvShow::fromApi($t);
         })->toArray();
     }
+    public function topRatedTvShows(): array
+    {
+        $data = Http::get("https://api.themoviedb.org/3/tv/top_rated", [
+            'api_key' => $this->apiKey,
+            'language' => 'fr-FR',
+        ])->json('results');
+        return collect($data)->map(function ($t) {
+            return TvShow::fromApi($t);
+        })->toArray();
+    }
+    public function findOneTvShowById(int $id){
+          $data = Http::get("https://api.themoviedb.org/3/tv/{$id}", [
+            'api_key' => $this->apiKey,
+            'language' => 'fr-FR',
+        ])->json();
+
+        return TvShow::fromApi($data);
+    }
 
     public function popularTvShows(): array
     {
