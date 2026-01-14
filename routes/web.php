@@ -16,8 +16,8 @@ Route::get(
     [MoviesController::class, "popular"]
 )->name("movies.popular");
 Route::get(
-    '/movies/actual',
-    [MoviesController::class, "actual"]
+    '/movies/now-playing',
+    [MoviesController::class, "nowPlaying"]
 )->name("movies.actual");
 Route::get(
     '/movies/up-coming',

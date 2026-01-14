@@ -26,17 +26,6 @@ class TmdbService
             return Movie::fromApi($m);
         })->toArray();
     }
-    public function actualMovies(): array
-    {
-        $data = Http::get("https://api.themoviedb.org/3/movie/now_playing", [
-            'api_key' => $this->apiKey,
-            'language' => 'fr-FR',
-        ])->json('results');
-
-        return collect($data)->map(function ($m) {
-            return Movie::fromApi($m);
-        })->toArray();
-    }
     public function upComingMovies(): array
     {
         $data = Http::get("https://api.themoviedb.org/3/movie/upcoming", [

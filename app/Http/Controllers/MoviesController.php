@@ -16,9 +16,9 @@ class MoviesController extends Controller
         $popularMovies = $this->tmdbService->popularMovies();
         return view('movies.popular', compact('popularMovies'));
     }
-    public function actual(){
-        $actualMovies = $this->tmdbService->actualMovies();
-        return view('movies.actual', compact('actualMovies'));
+    public function nowPlaying(){
+        $nowPlayingMovies = $this->tmdbService->nowPlaying();
+        return view('movies.nowplaying', compact('nowPlayingMovies'));
     }
     public function upComing(){
         $upComingMovies = $this->tmdbService->upComingMovies();
