@@ -23,4 +23,10 @@ class Movie
             $data['poster_path'] ?? null,
         );
     }
+    public function posterUrl(string $size = 'w500'): ?string
+{
+    return $this->posterPath
+        ? "https://image.tmdb.org/t/p/{$size}{$this->posterPath}"
+        : null;
+}
 }
