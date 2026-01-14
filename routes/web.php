@@ -4,6 +4,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\MoviesController;
+use App\Http\Controllers\TvShowController;
 
 Route::get(
     '/',
@@ -28,9 +29,10 @@ Route::get(
     [MoviesController::class, "topRated"]
 )->name("movies.toprated");
 
+Route::get('tv-shows/popular', [TvShowController::class, "popularTvShows"])->name("tvshows.popular");
+
 //Show
 Route::get(
     '/movies/popular/{movie}',
     [MoviesController::class, "show"]
 )->name("movies.show");
-

@@ -98,4 +98,15 @@ class TmdbService
             return TvShow::fromApi($t);
         })->toArray();
     }
+
+    public function popularTvShows(): array
+    {
+        $data = Http::get("https://api.themoviedb.org/3/tv/popular", [
+            'api_key' => $this->apiKey,
+            'language' => 'fr-FR',
+        ])->json('results');
+        return collect($data)->map(function ($t) {
+            return TvShow::fromApi($t);
+        })->toArray();
+    }
 }
