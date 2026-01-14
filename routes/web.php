@@ -10,11 +10,25 @@ Route::get(
     [HomeController::class, "homeAction"]
 )->name("pages.home");
 
-//Routes des movies
+//Routes des index movies
 Route::get(
     '/movies/popular',
-    [MoviesController::class, "index"]
-)->name("movies.index");
+    [MoviesController::class, "popular"]
+)->name("movies.popular");
+Route::get(
+    '/movies/actual',
+    [MoviesController::class, "actual"]
+)->name("movies.actual");
+Route::get(
+    '/movies/up-coming',
+    [MoviesController::class, "upComing"]
+)->name("movies.upcoming");
+Route::get(
+    '/movies/top-rated',
+    [MoviesController::class, "topRated"]
+)->name("movies.toprated");
+
+//Show
 Route::get(
     '/movies/popular/{movie}',
     [MoviesController::class, "show"]

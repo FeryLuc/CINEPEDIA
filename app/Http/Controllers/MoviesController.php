@@ -12,12 +12,24 @@ class MoviesController extends Controller
     {
         $this->tmdbService = $tmdbService;
     }
-    public function index(){
+    public function popular(){
         $popularMovies = $this->tmdbService->popularMovies();
-        return view('movies.index', compact('popularMovies'));
+        return view('movies.popular', compact('popularMovies'));
+    }
+    public function actual(){
+        $actualMovies = $this->tmdbService->actualMovies();
+        return view('movies.actual', compact('actualMovies'));
+    }
+    public function upComing(){
+        $upComingMovies = $this->tmdbService->upComingMovies();
+        return view('movies.upcoming', compact('upComingMovies'));
+    }
+    public function topRated(){
+        $topRatedMovies = $this->tmdbService->topRatedMovies();
+        return view('movies.toprated', compact('topRatedMovies'));
     }
     public function show(int $id){
-    $movie = $this->tmdbService->findOnePopularMovieById($id);
+    $movie = $this->tmdbService->findOneMovieById($id);
     return view('movies.show', compact('movie'));
     }
 }

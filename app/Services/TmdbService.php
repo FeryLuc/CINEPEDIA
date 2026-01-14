@@ -25,7 +25,40 @@ class TmdbService
             return Movie::fromApi($m);
         })->toArray();
     }
-    public function findOnePopularMovieById(int $id): Movie
+    public function actualMovies(): array
+    {
+        $data = Http::get("https://api.themoviedb.org/3/movie/now_playing", [
+            'api_key' => $this->apiKey,
+            'language' => 'fr-FR',
+        ])->json('results');
+
+        return collect($data)->map(function ($m) {
+            return Movie::fromApi($m);
+        })->toArray();
+    }
+    public function upComingMovies(): array
+    {
+        $data = Http::get("https://api.themoviedb.org/3/movie/upcoming", [
+            'api_key' => $this->apiKey,
+            'language' => 'fr-FR',
+        ])->json('results');
+
+        return collect($data)->map(function ($m) {
+            return Movie::fromApi($m);
+        })->toArray();
+    }
+    public function topRatedMovies(): array
+    {
+        $data = Http::get("https://api.themoviedb.org/3/movie/top_rated", [
+            'api_key' => $this->apiKey,
+            'language' => 'fr-FR',
+        ])->json('results');
+
+        return collect($data)->map(function ($m) {
+            return Movie::fromApi($m);
+        })->toArray();
+    }
+    public function findOneMovieById(int $id): Movie
     {
         $data = Http::get("https://api.themoviedb.org/3/movie/{$id}", [
             'api_key' => $this->apiKey,

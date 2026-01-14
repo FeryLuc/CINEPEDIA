@@ -1,5 +1,5 @@
 <header class="w-full p-4 grid grid-cols-2 bg-gray-500">
-    <div class="text-xl"><span class="text-amber-800">Ciné</span><span class="text-red-600 font-bold">Pedia</span></div>
+    <div class="text-xl"><a href="{{route('pages.home')}}"><span class="text-amber-800">Ciné</span><span class="text-red-600 font-bold">Pedia</span></a></div>
     <nav class="justify-self-end pr-16">
         <ul class="flex gap-6 text-gray-200">
             <li class="relative group/films">
@@ -9,16 +9,16 @@
                             group-hover/films:block
                             group-focus-within/films:block
                             bg-white text-gray-800 shadow-lg rounded z-50">
-                    <a href="{{route('movies.index')}}" class="block px-4 py-2 hover:bg-gray-100">
+                    <a href="{{route('movies.popular')}}" class="block px-4 py-2 hover:bg-gray-100">
                     Populaires
                     </a>
-                    <a href="" class="block px-4 py-2 hover:bg-gray-100">
+                    <a href="{{route('movies.actual')}}" class="block px-4 py-2 hover:bg-gray-100">
                     Du moment
                     </a>
-                    <a href="" class="block px-4 py-2 hover:bg-gray-100">
+                    <a href="{{route('movies.upcoming')}}" class="block px-4 py-2 hover:bg-gray-100">
                     A venir
                     </a>
-                    <a href="" class="block px-4 py-2 hover:bg-gray-100">
+                    <a href="{{route('movies.toprated')}}" class="block px-4 py-2 hover:bg-gray-100">
                     Les mieux notés
                     </a>
                 </div>

@@ -8,9 +8,9 @@ class Movie
     public function __construct(
         public string $id,
         public string $title,
-        public string $resume,
-        public string $note,
-        public string $posterPath,
+        public ?string $resume,
+        public ?string $note,
+        public ?string $posterPath,
     ) {}
 
     public static function fromApi(array $data): self
@@ -18,10 +18,9 @@ class Movie
         return new self(
             $data['id'],
             $data['title'],
-            $data['overview'],
-            $data['vote_average'],
-            $data['poster_path'],
-
+            $data['overview'] ?? null,
+            $data['vote_average'] ?? null,
+            $data['poster_path'] ?? null,
         );
     }
     public function posterUrl(string $size = 'w500'): ?string
